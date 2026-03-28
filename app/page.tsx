@@ -1,53 +1,55 @@
-import HeroSlider from './components/HeroSlider';
-import SectionHeading from './components/SectionHeading';
-import GameCard from './components/GameCard';
-import WhyChooseUs from './components/WhyChooseUs';
-import PartnerBanner from './components/PartnerBanner';
-import Newsletter from './components/Newsletter';
-import { getFeaturedGames, getTrendingGames, getPopularGames } from '@/lib/data';
+'use client';
 
-export default function HomePage() {
-  const featured = getFeaturedGames();
-  const trending = getTrendingGames();
-  const popular = getPopularGames();
+import EAGamesGrid from './components/EAGamesGrid';
 
+export default function Home() {
   return (
-    <>
-      {/* Hero Slider */}
-      <HeroSlider games={featured} />
-
-      {/* Trending Games */}
-      <section className="py-10 lg:py-14">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Trending" seeMoreHref="/games" />
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
-            {trending.map((game) => (
-              <GameCard key={game.id} game={game} showPrice />
-            ))}
-          </div>
+    <div className="flex flex-col w-full bg-black">
+      {/* Phase 2: Video Hero Section */}
+      <section className="relative w-full h-[85vh] md:h-[95vh] overflow-hidden bg-black flex flex-col items-center justify-center -mt-[112px] pt-[112px]">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            className="block object-cover w-full h-full opacity-60 scale-[1.15] transform-gpu"
+            onTimeUpdate={(e) => {
+              const video = e.currentTarget;
+              // 2:20 is 140 seconds
+              if (video.currentTime >= 140) {
+                video.currentTime = 8;
+                video.play();
+              }
+            }}
+          >
+            <source src="/hero_video.mp4#t=8" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
+
+        {/* Big Typography Overlay - Stacked 3 lines with badge */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center select-none pt-4 md:pt-0">
+          <h1
+            className="font-luckiest text-white uppercase text-center flex flex-col leading-[0.85] tracking-normal w-full relative"
+            style={{ fontSize: 'clamp(4rem, 11vw, 12rem)' }}
+          >
+            <span className="font-black mix-blend-overlay opacity-90 w-full whitespace-nowrap">POWER</span>
+            <span className="font-black mix-blend-overlay opacity-90 w-full">YOUR</span>
+            <span className="font-black whitespace-nowrap mix-blend-overlay opacity-90 w-full relative">
+              GAME
+            </span>
+          </h1>
+        </div>
+
+        {/* Dark gradient overlay at the bottom so it fades cleanly into the next section later */}
+        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-[#111111] to-transparent z-10 pointer-events-none" />
       </section>
 
-      {/* Popular Top-Ups */}
-      <section className="py-10 lg:py-14 bg-surface-800/50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Popular Top-Ups" seeMoreHref="/games" />
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
-            {popular.map((game) => (
-              <GameCard key={game.id} game={game} showPrice />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <WhyChooseUs />
-
-      {/* Partner Banner */}
-      <PartnerBanner />
-
-      {/* Newsletter */}
-      <Newsletter />
-    </>
+      {/* Phase 3: EA Sports Latest Games Grid */}
+      <EAGamesGrid />
+    </div>
   );
 }
+

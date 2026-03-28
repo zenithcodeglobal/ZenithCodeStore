@@ -23,6 +23,14 @@
   --color-error: #ef4444;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-luckiest: var(--font-luckiest), 'Luckiest Guy', cursive;
+
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }
 
 /* Smooth scroll for the whole page */

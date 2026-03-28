@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import { Inter, Luckiest_Guy } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const luckiest = Luckiest_Guy({ weight: "400", subsets: ["latin"], variable: "--font-luckiest" });
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -47,10 +51,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className="antialiased min-h-screen flex flex-col">
+      <body className={`${inter.variable} ${luckiest.variable} font-sans antialiased min-h-screen flex flex-col`}>
         <Navbar />
         <main className="flex-1">{children}</main>
-        <Footer />
       </body>
     </html>
   );
