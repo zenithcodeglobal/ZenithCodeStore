@@ -1,6 +1,7 @@
 'use client';
 
 import EAGamesGrid from './components/EAGamesGrid';
+import HomeNewsSection from './components/HomeNewsSection';
 
 export default function Home() {
   return (
@@ -49,6 +50,9 @@ export default function Home() {
 
       {/* Phase 3: EA Sports Latest Games Grid */}
       <EAGamesGrid />
+
+      {/* Phase 4: EA Sports Latest News Section */}
+      <HomeNewsSection />
     </div>
   );
 }
