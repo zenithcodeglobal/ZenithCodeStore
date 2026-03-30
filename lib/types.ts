@@ -41,3 +41,17 @@ export interface TeamMember {
   role: string;
   avatar: string;
 }
+
+export type NewsCategory = 'all' | 'valorant' | 'pubg-mobile' | 'free-fire' | 'genshin-impact' | 'mobile-legends' | 'cod-mobile';
+
+export interface NewsArticle {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  category: NewsCategory;
+  categoryLabel: string;
+  date: string;
+  slug: string;
+  game?: string;
+}
