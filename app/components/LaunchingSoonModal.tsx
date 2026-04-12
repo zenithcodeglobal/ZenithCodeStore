@@ -1,64 +1,49 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect } from 'react';
 
-export default function LaunchingSoonModal() {
-  const [isOpen, setIsOpen] = useState(false);
+interface LaunchingSoonModalProps {
+  onClose: () => void;
+}
+
+export default function LaunchingSoonModal({ onClose }: LaunchingSoonModalProps) {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
 
   return (
-    <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className="w-full py-3.5 rounded-xl font-semibold text-base bg-surface-500 text-text-muted cursor-not-allowed relative overflow-hidden group"
-      >
-        <span className="relative z-10 flex items-center justify-center gap-2">
-          🔒 Purchase
-        </span>
-        <div className="absolute inset-0 bg-brand/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-      </button>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+      <div
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm animate-fade-in"
+        onClick={onClose}
+      />
 
-      {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-            onClick={() => setIsOpen(false)}
-          />
+      <div className="relative bg-[rgb(28,27,25)] border border-white/[0.06] rounded-2xl p-8 sm:p-10 max-w-sm w-full animate-fade-in-up shadow-2xl">
+        <div className="text-center">
 
-          {/* Modal */}
-          <div className="relative bg-surface-700 rounded-2xl border border-white/10 p-6 sm:p-8 max-w-md w-full animate-fade-in-up shadow-2xl">
-            {/* Glow */}
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-40 bg-brand/20 rounded-full blur-[80px]" />
-
-            <div className="relative text-center">
-              <div className="w-16 h-16 mx-auto rounded-full brand-gradient flex items-center justify-center mb-4 animate-pulse-glow">
-                <span className="text-3xl">🚀</span>
-              </div>
-
-              <h3 className="text-xl font-bold text-white mb-2">
-                Launching Soon!
-              </h3>
-
-              <p className="text-text-secondary text-sm leading-relaxed mb-6">
-                We are currently onboarding API partners to bring you the best
-                top-up experience. Stay tuned for our grand launch!
-              </p>
-
-              <div className="space-y-3">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="w-full py-3 rounded-xl font-semibold text-white brand-gradient hover:opacity-90 transition-opacity"
-                >
-                  Got it!
-                </button>
-                <p className="text-xs text-text-muted">
-                  Want to be notified? Sign up for our newsletter below.
-                </p>
-              </div>
-            </div>
+          <div className="w-14 h-14 mx-auto rounded-2xl bg-white/[0.06] flex items-center justify-center mb-6">
+            <svg className="w-7 h-7 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
+
+          <h3 className="font-luckiest text-2xl text-white uppercase tracking-wide leading-none mb-3">
+            Launching Soon
+          </h3>
+
+          <p className="text-white/40 text-sm leading-relaxed mb-8">
+            We are onboarding API partners to bring you the best top-up experience. Stay tuned for launch.
+          </p>
+
+          <button
+            onClick={onClose}
+            className="w-full h-12 bg-white text-[rgb(22,22,22)] font-luckiest text-base tracking-wider uppercase rounded-xl hover:bg-white/90 active:scale-[0.97] transition-all duration-200"
+          >
+            Got It
+          </button>
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 }

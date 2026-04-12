@@ -2,161 +2,213 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about TopUpZone – your trusted platform for instant game top-ups. Our mission, values, and the team behind the platform.',
+  description:
+    'ZenithCodeStore is building the fastest way to top up your favourite games. Learn about our story, mission, and what drives us.',
 };
 
-const values = [
+const stats = [
+  { value: '12+', label: 'Supported Titles' },
+  { value: '150+', label: 'Countries Ready' },
+  { value: '<5s', label: 'Delivery Target' },
+  { value: '24/7', label: 'Support' },
+];
+
+const pillars = [
   {
-    icon: '🎯',
-    title: 'Our Mission',
-    description: 'To make game top-ups accessible, instant, and affordable for every gamer around the world.',
+    number: '01',
+    title: 'Speed Above All',
+    body: 'Our delivery pipelines are built to get your in-game currency to you within seconds. Not minutes, not hours.',
   },
   {
-    icon: '🛡️',
-    title: 'Security First',
-    description: 'Every transaction is protected with industry-leading encryption and fraud prevention systems.',
+    number: '02',
+    title: 'Transparent Pricing',
+    body: 'No hidden markups, no surprise fees. The price you see is the price you pay, every single time.',
   },
   {
-    icon: '🌍',
-    title: 'Global Reach',
-    description: 'Supporting gamers in over 50 countries with localized payment methods and multi-currency support.',
+    number: '03',
+    title: 'Built for Gamers',
+    body: 'Every feature is designed by people who game. We understand the urgency of a mid-session top-up.',
   },
   {
-    icon: '⚡',
-    title: 'Instant Delivery',
-    description: 'Our automated systems ensure your top-up is delivered within seconds of payment confirmation.',
-  },
-  {
-    icon: '💎',
-    title: 'Best Prices',
-    description: 'Direct partnerships with game publishers allow us to offer the most competitive prices.',
-  },
-  {
-    icon: '🫂',
-    title: 'Community Driven',
-    description: 'Built by gamers, for gamers. We listen to our community and continuously improve.',
+    number: '04',
+    title: 'Security by Default',
+    body: 'Bank-grade encryption protects every transaction. We never store payment details on our servers.',
   },
 ];
 
-const stats = [
-  { value: '2M+', label: 'Happy Gamers' },
-  { value: '50+', label: 'Supported Games' },
-  { value: '150+', label: 'Countries Served' },
-  { value: '99.9%', label: 'Uptime' },
+const faqs = [
+  {
+    q: 'How fast is the delivery?',
+    a: 'Most top-ups will be delivered instantly, within seconds of payment confirmation. In rare cases, it may take up to 5 minutes.',
+  },
+  {
+    q: 'Is it safe to use ZenithCodeStore?',
+    a: 'Absolutely. All transactions are protected with bank-grade encryption. We never store your payment information on our servers.',
+  },
+  {
+    q: 'What payment methods do you accept?',
+    a: 'We accept credit/debit cards, PayPal, Google Pay, Apple Pay, and various local payment methods depending on your region.',
+  },
+  {
+    q: 'When are you launching?',
+    a: 'We are putting the finishing touches on the platform right now. Sign up for updates and you will be the first to know when we go live.',
+  },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="pt-32 pb-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Hero */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-3xl sm:text-5xl font-bold text-white mb-6">
-            About <span className="gradient-text">TopUpZone</span>
+    <div className="bg-[rgb(22,22,22)] min-h-screen">
+      {/* ─── Hero ─── */}
+      <section className="relative pt-28 sm:pt-40 pb-20 sm:pb-28 overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              'radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)',
+            backgroundSize: '24px 24px',
+          }}
+        />
+
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm tracking-[0.25em] uppercase text-white/40 mb-6">
+            About Us
+          </p>
+          <h1 className="font-luckiest text-4xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-8">
+            WE ARE BUILDING
+            <br />
+            <span className="text-[rgb(217,60,79)]">SOMETHING BIG</span>
           </h1>
-          <p className="text-lg text-text-secondary leading-relaxed">
-            Welcome to TopUpZone — your trusted partner in the world of gaming entertainment.
-            We are dedicated to providing gamers with the fastest, safest, and most affordable
-            way to top up their favourite games.
+          <p className="text-lg sm:text-xl text-white/50 max-w-xl mx-auto leading-relaxed font-body">
+            ZenithCodeStore is a new game top-up platform made by gamers
+            who were tired of slow, overpriced, and unreliable alternatives.
+            We are launching soon.
           </p>
         </div>
+      </section>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+      {/* ─── Stats ─── */}
+      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06] rounded-2xl overflow-hidden">
           {stats.map((stat) => (
-            <div key={stat.label} className="glass-card rounded-xl p-6 text-center border border-white/5">
-              <div className="text-3xl sm:text-4xl font-bold gradient-text mb-1">{stat.value}</div>
-              <div className="text-sm text-text-secondary">{stat.label}</div>
+            <div
+              key={stat.label}
+              className="bg-[rgb(22,22,22)] p-6 sm:p-10 text-center"
+            >
+              <div className="font-luckiest text-3xl sm:text-4xl text-white mb-2">
+                {stat.value}
+              </div>
+              <div className="text-sm text-white/40 tracking-wide uppercase">
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>
+      </section>
 
-        {/* Our Story */}
-        <div className="glass-card rounded-2xl p-8 sm:p-12 border border-white/5 mb-16">
-          <h2 className="text-2xl font-bold text-white mb-6">Our Story</h2>
-          <div className="space-y-4 text-text-secondary leading-relaxed">
-            <p>
-              TopUpZone was founded in 2024 by a group of passionate gamers who were frustrated
-              with the complexity and unreliability of existing game top-up platforms. We set out
-              to build something better — a platform that combines speed, security, and simplicity.
-            </p>
-            <p>
-              Today, we serve millions of gamers across over 150 countries, offering instant
-              top-ups for more than 50 of the world&apos;s most popular games. Our direct partnerships
-              with game publishers and payment providers allow us to offer the best prices with
-              instant delivery.
-            </p>
-            <p>
-              We believe that gaming should be accessible to everyone. That&apos;s why we continuously
-              work to expand our game catalogue, support more payment methods, and improve our
-              platform to deliver the best possible experience for our community.
-            </p>
-          </div>
+      {/* ─── Our Story ─── */}
+      <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28">
+        <p className="text-sm tracking-[0.25em] uppercase text-white/40 mb-4">
+          Our Story
+        </p>
+        <h2 className="font-luckiest text-3xl sm:text-4xl text-white mb-8">
+          STARTED WITH FRUSTRATION.
+          <br />
+          BUILT WITH PURPOSE.
+        </h2>
+        <div className="space-y-5 text-white/50 text-base sm:text-lg leading-relaxed font-body">
+          <p>
+            We started ZenithCodeStore because every top-up platform we tried
+            felt slow, overpriced, or sketchy. As gamers ourselves, we knew
+            there had to be a better way. So we decided to build it.
+          </p>
+          <p>
+            Right now we are in the final stages before launch, with support
+            for 12+ popular titles and coverage across 150+ countries already
+            in place. Our systems are designed to deliver top-ups in under
+            five seconds, backed by direct publisher partnerships that keep
+            pricing honest.
+          </p>
+          <p>
+            This is just the beginning. More games, more payment methods,
+            and a relentless focus on making the experience faster and
+            simpler. That is what drives every line of code we ship.
+          </p>
         </div>
+      </section>
 
-        {/* Values */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold text-white text-center mb-10">
-            What We <span className="gradient-text">Stand For</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="group glass-card rounded-xl p-6 border border-white/5 hover:border-brand/30 transition-all"
-              >
-                <div className="w-12 h-12 rounded-xl bg-surface-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-                  {value.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{value.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{value.description}</p>
+      {/* ─── Pillars ─── */}
+      <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28">
+        <p className="text-sm tracking-[0.25em] uppercase text-white/40 mb-4">
+          What We Stand For
+        </p>
+        <h2 className="font-luckiest text-3xl sm:text-4xl text-white mb-12">
+          FOUR PILLARS
+        </h2>
+
+        <div className="space-y-0">
+          {pillars.map((pillar, i) => (
+            <div
+              key={pillar.number}
+              className={`group flex gap-4 sm:gap-8 py-6 sm:py-8 ${
+                i < pillars.length - 1 ? 'border-b border-white/[0.06]' : ''
+              }`}
+            >
+              <span className="font-luckiest text-2xl text-white/10 group-hover:text-[rgb(217,60,79)] transition-colors duration-500 select-none shrink-0 pt-0.5">
+                {pillar.number}
+              </span>
+              <div>
+                <h3 className="font-luckiest text-xl sm:text-2xl text-white mb-2 group-hover:translate-x-1 transition-transform duration-500">
+                  {pillar.title.toUpperCase()}
+                </h3>
+                <p className="text-white/40 text-base leading-relaxed font-body">
+                  {pillar.body}
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+      </section>
 
-        {/* FAQ */}
-        <div id="faq">
-          <h2 className="text-2xl font-bold text-white text-center mb-10">
-            Frequently Asked <span className="gradient-text">Questions</span>
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-4">
-            {[
-              {
-                q: 'How fast is the delivery?',
-                a: 'Most top-ups are delivered instantly — within seconds of payment confirmation. In rare cases, it may take up to 5 minutes.',
-              },
-              {
-                q: 'Is it safe to use TopUpZone?',
-                a: 'Absolutely. All transactions are protected with bank-grade encryption. We never store your payment information.',
-              },
-              {
-                q: 'What payment methods do you accept?',
-                a: 'We accept credit/debit cards, PayPal, Google Pay, Apple Pay, and various local payment methods depending on your region.',
-              },
-              {
-                q: 'Can I get a refund?',
-                a: 'Due to the instant nature of digital deliveries, refunds are handled on a case-by-case basis. Contact our support team for assistance.',
-              },
-            ].map((faq) => (
-              <details
-                key={faq.q}
-                className="group glass-card rounded-xl border border-white/5 overflow-hidden"
-              >
-                <summary className="cursor-pointer p-5 flex items-center justify-between text-white font-medium hover:bg-white/5 transition-colors list-none">
-                  {faq.q}
-                  <svg className="w-5 h-5 text-text-muted group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <div className="px-5 pb-5 text-sm text-text-secondary leading-relaxed">
-                  {faq.a}
-                </div>
-              </details>
-            ))}
-          </div>
+      {/* ─── FAQ ─── */}
+      <section id="faq" className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-20 sm:pb-32">
+        <p className="text-sm tracking-[0.25em] uppercase text-white/40 mb-4">
+          FAQ
+        </p>
+        <h2 className="font-luckiest text-3xl sm:text-4xl text-white mb-12">
+          COMMON QUESTIONS
+        </h2>
+
+        <div className="space-y-0">
+          {faqs.map((faq, i) => (
+            <details
+              key={faq.q}
+              className={`group ${
+                i < faqs.length - 1 ? 'border-b border-white/[0.06]' : ''
+              }`}
+            >
+              <summary className="flex items-center justify-between py-6 text-white text-base sm:text-lg font-medium list-none select-none hover:text-white/80 transition-colors duration-300">
+                {faq.q}
+                <svg
+                  className="w-5 h-5 text-white/20 group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 4v16m8-8H4"
+                  />
+                </svg>
+              </summary>
+              <div className="pb-6 text-white/40 text-base leading-relaxed pr-10 font-body">
+                {faq.a}
+              </div>
+            </details>
+          ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 }

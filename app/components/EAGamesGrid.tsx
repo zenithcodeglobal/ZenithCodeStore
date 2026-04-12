@@ -6,7 +6,6 @@ import { getAllGames } from '@/lib/data';
 export default function EAGamesGrid() {
   const allGames = getAllGames();
   
-  // Valorant (4), Mobile Legends (1), COD Mobile (6), PUBG (2), Genshin Impact (5), Free Fire (3)
   const targetIds = ['4', '1', '6', '2', '5', '3'];
   const games = targetIds.map(id => allGames.find(g => g.id === id)).filter(Boolean) as Game[];
 
@@ -20,21 +19,20 @@ export default function EAGamesGrid() {
   };
 
   return (
-    <section className="w-full bg-[#111111] py-16 md:py-24 flex flex-col items-center">
+    <section className="w-full bg-[rgb(28,27,25)] py-12 sm:py-16 md:py-24 flex flex-col items-center">
       <h2 
-        className="font-luckiest text-white text-center text-[2.5rem] md:text-[3.5rem] leading-none uppercase tracking-wide mb-16 md:mb-24"
+        className="font-luckiest text-white text-center text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] leading-none uppercase tracking-wide mb-10 sm:mb-16 md:mb-24"
       >
         HOT RIGHT NOW
       </h2>
       
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 lg:gap-x-8 gap-y-12 md:gap-y-20 lg:gap-y-24">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-x-6 lg:gap-x-8 gap-y-6 sm:gap-y-12 md:gap-y-20 lg:gap-y-24">
         {games.map(game => (
           <Link 
             key={game.id} 
             href={`/games/${game.slug}`}
             className="group relative w-full aspect-[4/5] overflow-hidden bg-transparent block"
           >
-            {/* Background Image - We make the image itself fade slightly by fading the overlay stronger */}
             <Image
               src={game.image}
               alt={game.name}
@@ -44,13 +42,10 @@ export default function EAGamesGrid() {
               } ${game.slug === 'cod-mobile' ? 'scale-[1.08] group-hover:scale-[1.12]' : 'scale-100 group-hover:scale-105'}`}
             />
             
-            {/* EA-Style Fading Effect - We fade from the section background color (#111111) solidly, so the image blends smoothly into the page without hard edges */}
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#111111] via-[#111111]/60 to-transparent pointer-events-none z-10" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[rgb(28,27,25)] via-[rgb(28,27,25)]/60 to-transparent pointer-events-none z-10" />
 
-            {/* Bottom Title Area matching EA style */}
-            <div className="absolute bottom-6 left-6 right-6 flex items-center gap-3 z-20">
-              {/* White Circular Game Badge */}
-              <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 bg-white rounded-full flex items-center justify-center p-2 shadow-lg mix-blend-normal">
+            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex items-center gap-2 sm:gap-3 z-20">
+              <div className="w-8 h-8 sm:w-12 sm:h-12 flex-shrink-0 bg-white rounded-full flex items-center justify-center p-1.5 sm:p-2 shadow-lg mix-blend-normal">
                 <Image
                   src={logoMap[game.slug] || "/zenith_logo.png"}
                   alt={`${game.name} Logo`}
@@ -59,13 +54,21 @@ export default function EAGamesGrid() {
                   className="object-contain mix-blend-multiply scale-90"
                 />
               </div>
-              {/* Game Title */}
-              <span className="font-luckiest text-white text-[1.5rem] sm:text-[1.8rem] leading-none uppercase tracking-wide translate-y-1 drop-shadow-md line-clamp-2">
+              <span className="font-luckiest text-white text-[1rem] sm:text-[1.5rem] md:text-[1.8rem] leading-none uppercase tracking-wide translate-y-0.5 sm:translate-y-1 drop-shadow-md line-clamp-2">
                 {game.name}
               </span>
             </div>
           </Link>
         ))}
+      </div>
+
+      <div className="mt-12 sm:mt-20 md:mt-28 flex justify-center">
+        <Link
+          href="/games"
+          className="px-8 py-3 rounded-full bg-white text-[rgb(22,22,22)] font-bold uppercase tracking-wider hover:bg-white/90 active:scale-[0.97] transition-all duration-200"
+        >
+          See All Games
+        </Link>
       </div>
     </section>
   );
