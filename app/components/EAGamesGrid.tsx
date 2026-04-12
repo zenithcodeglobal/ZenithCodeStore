@@ -37,6 +37,7 @@ export default function EAGamesGrid() {
               src={game.image}
               alt={game.name}
               fill
+              sizes="(max-width: 768px) 50vw, 33vw"
               className={`object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 ease-out z-0 ${
                 ['mobile-legends', 'cod-mobile', 'pubg-mobile'].includes(game.slug) ? 'object-top' : 'object-center'
               } ${game.slug === 'cod-mobile' ? 'scale-[1.08] group-hover:scale-[1.12]' : 'scale-100 group-hover:scale-105'}`}
@@ -51,7 +52,7 @@ export default function EAGamesGrid() {
                   alt={`${game.name} Logo`}
                   width={30}
                   height={30}
-                  className="object-contain mix-blend-multiply scale-90"
+                  className="object-contain mix-blend-multiply scale-90 w-auto h-auto"
                 />
               </div>
               <span className="font-luckiest text-white text-[1rem] sm:text-[1.5rem] md:text-[1.8rem] leading-none uppercase tracking-wide translate-y-0.5 sm:translate-y-1 drop-shadow-md line-clamp-2">
@@ -65,7 +66,7 @@ export default function EAGamesGrid() {
       <div className="mt-12 sm:mt-20 md:mt-28 flex justify-center">
         <Link
           href="/games"
-          className="px-8 py-3 rounded-full bg-white text-[rgb(22,22,22)] font-bold uppercase tracking-wider hover:bg-white/90 active:scale-[0.97] transition-all duration-200"
+          className="px-8 py-3 rounded-full bg-white text-[rgb(22,22,22)] font-body font-bold uppercase tracking-wider hover:bg-white/90 active:scale-[0.97] transition-all duration-200"
         >
           See All Games
         </Link>

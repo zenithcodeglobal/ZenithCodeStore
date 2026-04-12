@@ -56,7 +56,7 @@ export default function NewsCard({ article, index, featured = false }: NewsCardP
                 {article.source}
               </span>
             )}
-            <span className="text-white/40 text-xs font-medium tracking-wide">
+            <span className="font-body text-white/40 text-xs font-medium tracking-wide">
               {formattedDate}
             </span>
           </div>
@@ -65,7 +65,7 @@ export default function NewsCard({ article, index, featured = false }: NewsCardP
             {article.title}
           </h2>
 
-          <p className="text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl line-clamp-2 mb-5 hidden sm:block">
+          <p className="font-body text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl line-clamp-2 mb-5 hidden sm:block">
             {article.description}
           </p>
 
@@ -116,10 +116,10 @@ export default function NewsCard({ article, index, featured = false }: NewsCardP
           </h3>
 
           <div className="flex items-center justify-between">
-            <span className="text-white/40 text-[11px] font-medium tracking-wide">
+            <span className="font-body text-white/40 text-[11px] font-medium tracking-wide">
               {formattedDate}
             </span>
-            <span className="flex items-center gap-1.5 text-white/50 text-[11px] font-bold uppercase tracking-wider group-hover:text-white/80 transition-colors">
+            <span className="font-body flex items-center gap-1.5 text-white/50 text-[11px] font-bold uppercase tracking-wider group-hover:text-white/80 transition-colors">
               {article.isExternal ? 'Read' : 'Read More'}
               <svg
                 className="w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-200"

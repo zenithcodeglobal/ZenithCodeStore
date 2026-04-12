@@ -22,18 +22,18 @@ export default function Footer() {
           </h2>
           <Link
             href="/contact"
-            className="shrink-0 px-8 py-3 rounded-full bg-[rgb(217,60,79)] text-white font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
+            className="shrink-0 px-8 py-3 rounded-full bg-[rgb(217,60,79)] text-white font-body font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
           >
             Get In Touch
           </Link>
         </div>
       </section>
 
-      <footer className="w-full bg-[rgb(28,27,25)]">
+      <footer className="w-full bg-[rgb(28,27,25)] font-body">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
           <div className="flex flex-col items-center gap-8">
             <Link href="/" className="inline-flex items-center gap-2">
-              <Image src="/zenith_logo.png" alt="ZenithCodeStore" width={32} height={32} />
+              <Image src="/zenith_logo.png" alt="ZenithCodeStore" width={32} height={32} className="w-auto h-auto" />
               <span className="text-lg font-bold text-white tracking-tight">ZenithCodeStore</span>
             </Link>
 

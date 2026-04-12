@@ -1,5 +1,3 @@
-'use client';
-
 export default function HeroVideo() {
   return (
     <section className="relative w-full h-[70vh] sm:h-[85vh] md:h-[95vh] overflow-hidden bg-black flex flex-col items-center justify-center -mt-[92px] sm:-mt-[112px] pt-[92px] sm:pt-[112px]">
@@ -7,19 +5,13 @@ export default function HeroVideo() {
         <video
           autoPlay
           muted
+          loop
           playsInline
-          preload="auto"
+          preload="none"
+          poster="/hero_poster.jpg"
           className="block object-cover w-full h-full opacity-60 scale-[1.15] transform-gpu"
-          onTimeUpdate={(e) => {
-            const video = e.currentTarget;
-            if (video.currentTime >= 140) {
-              video.currentTime = 8;
-              video.play();
-            }
-          }}
         >
-          <source src="/hero_video.mp4#t=8" type="video/mp4" />
-          Your browser does not support the video tag.
+          <source src="/hero_video.mp4" type="video/mp4" />
         </video>
       </div>
 

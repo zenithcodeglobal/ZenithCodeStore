@@ -19,6 +19,7 @@ export default function LaunchingSoonOverlay() {
     const seen = sessionStorage.getItem(STORAGE_KEY);
     if (!seen) {
       setVisible(true);
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       requestAnimationFrame(() => setMounted(true));
     }
@@ -32,6 +33,7 @@ export default function LaunchingSoonOverlay() {
     setTimeout(() => {
       setVisible(false);
       setExiting(false);
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
       sessionStorage.setItem(STORAGE_KEY, '1');
     }, 800);
@@ -57,7 +59,7 @@ export default function LaunchingSoonOverlay() {
 
   return (
     <div
-      className={`fixed inset-0 z-[200] flex flex-col items-center justify-center overflow-hidden transition-opacity duration-700 ${
+      className={`fixed inset-0 z-[200] flex flex-col items-center justify-center overflow-hidden overscroll-none touch-none transition-opacity duration-700 ${
         exiting ? 'opacity-0' : 'opacity-100'
       }`}
     >
@@ -112,7 +114,7 @@ export default function LaunchingSoonOverlay() {
             alt="ZenithCodeStore"
             width={72}
             height={72}
-            className="w-16 h-16 sm:w-[72px] sm:h-[72px]"
+            className="w-auto h-auto max-w-16 max-h-16 sm:max-w-[72px] sm:max-h-[72px]"
             priority
           />
         </div>

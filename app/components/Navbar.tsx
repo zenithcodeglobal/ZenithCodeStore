@@ -113,7 +113,7 @@ export default function Navbar() {
             alt="Zenith"
             width={20}
             height={14}
-            className="object-contain"
+            className="object-contain w-auto h-auto"
           />
         </a>
       </div>
@@ -128,6 +128,7 @@ export default function Navbar() {
                 src="/zenith_logo.png"
                 alt="Zenith Logo"
                 fill
+                sizes="64px"
                 className="object-contain object-left"
                 priority
               />

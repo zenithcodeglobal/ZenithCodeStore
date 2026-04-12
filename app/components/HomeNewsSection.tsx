@@ -21,7 +21,7 @@ export default async function HomeNewsSection() {
         <div className="mt-12 flex justify-center">
           <Link
             href="/news"
-            className="px-8 py-3 rounded-full bg-[rgb(217,60,79)] text-white font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
+            className="px-8 py-3 rounded-full bg-[rgb(217,60,79)] text-white font-body font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
           >
             See All News
           </Link>

@@ -136,7 +136,7 @@ export const games: Game[] = [
     description: 'Honkai: Star Rail is a space fantasy RPG by HoYoverse. Board the Astral Express and explore the galaxy in this turn-based strategy game. Build your team, uncover mysteries of the Stellaron, and experience a cinematic story across multiple worlds.',
     shortDescription: 'Space Fantasy RPG – Board the Astral Express',
     image: '/honkai-star-rail.avif',
-    bannerImage: '/honkai_banner.png',
+    bannerImage: '/honkai_banner.jpg',
     category: 'pc',
     platforms: ['PC', 'PS5', 'Android', 'iOS'],
     rating: 4.6,
