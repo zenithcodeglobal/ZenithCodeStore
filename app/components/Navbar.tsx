@@ -18,9 +18,9 @@ const mobileNavLinks = [
 
 const gameLinks = [
   { href: '/games/valorant', label: 'VALORANT', image: '/valorant-new.jpg' },
-  { href: '/games/mobile-legends', label: 'MOBILE LEGENDS', image: '/kagura-mlbb.webp' },
+  { href: '/games/mobile-legends', label: 'MOBILE LEGENDS', image: '/kagura-mlbb.webp', position: 'center 20%' },
   { href: '/games/cod-mobile', label: 'COD: MOBILE', image: '/cod_mobile.jpeg' },
-  { href: '/games/pubg-mobile', label: 'PUBG MOBILE', image: '/pubg1.jpg' },
+  { href: '/games/pubg-mobile', label: 'PUBG MOBILE', image: '/pubg1.jpg', position: 'center 20%' },
   { href: '/games/genshin-impact', label: 'GENSHIN IMPACT', image: '/genshin_impact.jpg' },
   { href: '/games/free-fire', label: 'FREE FIRE', image: '/free_fire_new.jpg' },
 ];
@@ -165,6 +165,7 @@ export default function Navbar() {
                             alt={game.label}
                             fill
                             className="object-cover transition-transform duration-300 group-hover/item:scale-110"
+                            style={game.position ? { objectPosition: game.position } : undefined}
                             sizes="40px"
                           />
                         </div>
@@ -316,6 +317,7 @@ export default function Navbar() {
                                           alt={game.label}
                                           fill
                                           className="object-cover group-hover/game:scale-110 transition-transform duration-300"
+                                          style={game.position ? { objectPosition: game.position } : undefined}
                                           sizes="64px"
                                         />
                                       </div>
