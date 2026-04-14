@@ -8,7 +8,7 @@ const AUTO_DISMISS_MS = 6000;
 const BUTTON_APPEAR_DELAY_MS = 1200;
 
 export default function LaunchingSoonOverlay() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [exiting, setExiting] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [timerActive, setTimerActive] = useState(false);
@@ -17,8 +17,9 @@ export default function LaunchingSoonOverlay() {
 
   useEffect(() => {
     const seen = sessionStorage.getItem(STORAGE_KEY);
-    if (!seen) {
-      setVisible(true);
+    if (seen) {
+      setVisible(false);
+    } else {
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       requestAnimationFrame(() => setMounted(true));
